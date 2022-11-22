@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://cho1odeod4wn1"]
+
+[ext_resource type="Script" path="res://Scripts/Mandelbrot.gd" id="1_nk585"]
+[ext_resource type="PackedScene" uid="uid://cwctncaslho03" path="res://Scenes/UIControls.tscn" id="2_16yy2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_mxjhn"]
+
+[node name="Mandelbrot" type="Node2D"]
+script = ExtResource("1_nk585")
+
+[node name="MainUIControl" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1366, 768)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1366.0
+offset_bottom = 768.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MainHBoxContainer" type="HBoxContainer" parent="MainUIControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TexturePanel" type="Panel" parent="MainUIControl/MainHBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(660, 660)
+layout_mode = 2
+offset_right = 908.0
+offset_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="MainUIControl/MainHBoxContainer/TexturePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_mxjhn")
+
+[node name="UIPanel" type="Panel" parent="MainUIControl/MainHBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 912.0
+offset_right = 1366.0
+offset_bottom = 768.0
+size_flags_horizontal = 3
+
+[node name="UIControls" parent="MainUIControl/MainHBoxContainer/UIPanel" instance=ExtResource("2_16yy2")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="PaintTimer" type="Timer" parent="."]
