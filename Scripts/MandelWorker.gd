@@ -22,9 +22,6 @@ var last_end : int
 func start() -> void:
 	if range_start == WorkerLauncher.INVALID_JOB.x || range_end == WorkerLauncher.INVALID_JOB.y:
 		return
-	if range_start == last_start && range_end == last_end:
-		print_debug("!!!! NOPE")
-		return
 	
 	print_debug("Worker starting with range [%d, %d)" % [range_start, range_end])
 	var im := range_start

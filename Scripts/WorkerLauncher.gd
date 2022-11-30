@@ -26,8 +26,6 @@ var request_work_mutex := Mutex.new()
 var work_request_flag := false
 var work_given_flag := false
 
-signal work_added
-
 func _init(
 	imageSide: int,
 	threadNumber: int,
@@ -76,7 +74,6 @@ func start() -> void:
 		worker.get_work_request_flag_fn = Callable(self, "get_work_request_flag")
 		worker.give_work_fn = Callable(self, "give_work")
 		workers.push_back(worker)
-		# Test without the array, but creating the callable outside the method call
 		
 		var new_thread := Thread.new()
 		threads.push_back(new_thread)
@@ -132,7 +129,6 @@ func give_work(rowSpan: Vector2i) -> bool:
 		next_job = rowSpan
 		work_request_flag = false
 		work_given_flag = true
-		work_added.emit()
 		give_work_mutex.unlock()
 		result = true
 		print_debug("Worker done giving work")

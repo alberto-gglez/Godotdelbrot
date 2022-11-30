@@ -13,6 +13,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 5
 script = ExtResource("1_ed81p")
 
 [node name="RenderModeHBoxContainer" type="HBoxContainer" parent="."]
@@ -42,9 +43,9 @@ popup/item_0/id = 0
 self_modulate = Color(1, 1, 1, 0.666667)
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-offset_top = 35.0
+offset_top = 36.0
 offset_right = 1326.0
-offset_bottom = 155.0
+offset_bottom = 156.0
 
 [node name="CPURenderHBoxContainer" type="VBoxContainer" parent="RenderModePanel"]
 layout_mode = 1
@@ -57,17 +58,12 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="----- MarginContainer" type="MarginContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-offset_right = 1306.0
+theme_override_constants/separation = 5
 
 [node name="ThreadsHBoxContainer" type="HBoxContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
 layout_mode = 2
-offset_top = 4.0
 offset_right = 1306.0
-offset_bottom = 30.0
+offset_bottom = 26.0
 
 [node name="ThreadsLabel" type="Label" parent="RenderModePanel/CPURenderHBoxContainer/ThreadsHBoxContainer"]
 layout_mode = 2
@@ -82,18 +78,11 @@ offset_left = 125.0
 offset_right = 139.0
 offset_bottom = 26.0
 
-[node name="----- MarginContainer2" type="MarginContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-offset_top = 34.0
-offset_right = 1306.0
-offset_bottom = 34.0
-
 [node name="ThreadsPriorityHBoxContainer" type="HBoxContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
 layout_mode = 2
-offset_top = 38.0
+offset_top = 31.0
 offset_right = 1306.0
-offset_bottom = 64.0
+offset_bottom = 57.0
 
 [node name="PriorityLabel" type="Label" parent="RenderModePanel/CPURenderHBoxContainer/ThreadsPriorityHBoxContainer" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
@@ -110,27 +99,50 @@ offset_left = 121.0
 offset_right = 135.0
 offset_bottom = 26.0
 
-[node name="----- MarginContainer3" type="MarginContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-offset_top = 68.0
-offset_right = 1306.0
-offset_bottom = 68.0
-
 [node name="WorkSubdivisionCheckBox" type="CheckBox" parent="RenderModePanel/CPURenderHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 72.0
+offset_top = 62.0
 offset_right = 1306.0
-offset_bottom = 103.0
+offset_bottom = 93.0
 button_pressed = true
 text = "Put finished threads to work"
 
+[node name="IterationsHSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+offset_top = 161.0
+offset_right = 1326.0
+offset_bottom = 187.0
+split_offset = 130
+dragger_visibility = 2
+
+[node name="IterationsLabel" type="Label" parent="IterationsHSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 130.0
+offset_bottom = 26.0
+size_flags_vertical = 8
+text = "Iterations: %d"
+
+[node name="IterationsHSlider" type="HSlider" parent="IterationsHSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 130.0
+offset_top = 5.0
+offset_right = 1326.0
+offset_bottom = 21.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 200.0
+max_value = 1000.0
+value = 200.0
+editable = false
+
 [node name="ColorVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_top = 159.0
+offset_top = 192.0
 offset_right = 1326.0
-offset_bottom = 194.0
+offset_bottom = 307.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorVBoxContainer"]
 layout_mode = 2
@@ -158,23 +170,104 @@ popup/item_1/text = "Custom"
 popup/item_1/id = 1
 
 [node name="Panel" type="Panel" parent="ColorVBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_top = 35.0
 offset_right = 1326.0
-offset_bottom = 35.0
+offset_bottom = 115.0
 
-[node name="----- MarginContainer6" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorVBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorVBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
-offset_top = 198.0
-offset_right = 1326.0
-offset_bottom = 198.0
+offset_right = 1306.0
+offset_bottom = 27.0
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 77.0
+offset_bottom = 26.0
+text = "First color"
+
+[node name="FirstColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 82.0
+offset_right = 122.0
+offset_bottom = 27.0
+color = Color(1, 1, 1, 1)
+
+[node name="Label2" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 127.0
+offset_right = 236.0
+offset_bottom = 26.0
+text = "Gradient start"
+
+[node name="GradientStartColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 241.0
+offset_right = 281.0
+offset_bottom = 27.0
+color = Color(1, 0.996078, 0.996078, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorVBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+offset_top = 32.0
+offset_right = 1306.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="Label2" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+offset_top = 1.0
+offset_right = 76.0
+offset_bottom = 27.0
+text = "Last color"
+
+[node name="LastColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 81.0
+offset_right = 121.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+offset_left = 126.0
+offset_top = 1.0
+offset_right = 228.0
+offset_bottom = 27.0
+text = "Gradient end"
+
+[node name="GradientEndColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_left = 233.0
+offset_right = 273.0
+offset_bottom = 28.0
+color = Color(1, 0, 0, 1)
 
 [node name="OrientationHBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_top = 202.0
+offset_top = 312.0
 offset_right = 1326.0
-offset_bottom = 228.0
+offset_bottom = 338.0
 
 [node name="OrientationLabel" type="Label" parent="OrientationHBoxContainer"]
 layout_mode = 2
@@ -189,34 +282,20 @@ offset_left = 94.0
 offset_right = 108.0
 offset_bottom = 26.0
 
-[node name="----- MarginContainer7" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-offset_top = 232.0
-offset_right = 1326.0
-offset_bottom = 232.0
-
 [node name="EnableRefreshCheckBox" type="CheckBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 236.0
+offset_top = 343.0
 offset_right = 1326.0
-offset_bottom = 267.0
+offset_bottom = 374.0
 button_pressed = true
 text = "Refresh image while working"
 
-[node name="----- MarginContainer8" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-offset_top = 271.0
-offset_right = 1326.0
-offset_bottom = 271.0
-
 [node name="RefreshHSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
-offset_top = 275.0
+offset_top = 379.0
 offset_right = 1326.0
-offset_bottom = 301.0
+offset_bottom = 405.0
 split_offset = 100
 dragger_visibility = 2
 
@@ -242,18 +321,11 @@ max_value = 1.0
 step = 0.01
 value = 0.01
 
-[node name="----- MarginContainer9" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-offset_top = 305.0
-offset_right = 1326.0
-offset_bottom = 305.0
-
 [node name="ImageSideHBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_top = 309.0
+offset_top = 410.0
 offset_right = 1326.0
-offset_bottom = 340.0
+offset_bottom = 441.0
 
 [node name="ImageSideLabel" type="Label" parent="ImageSideHBoxContainer"]
 layout_mode = 2
@@ -266,33 +338,33 @@ text = "Image side"
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 88.0
-offset_right = 231.0
+offset_right = 254.0
 offset_bottom = 31.0
 item_count = 1
-popup/item_0/text = "Dynamic: %d"
+popup/item_0/text = "Dynamic: %d px"
 popup/item_0/id = 0
 
 [node name="----- MarginContainer99" type="MarginContainer" parent="."]
 layout_mode = 2
-offset_top = 344.0
+offset_top = 446.0
 offset_right = 1326.0
-offset_bottom = 628.0
+offset_bottom = 625.0
 size_flags_vertical = 3
 
 [node name="TimeLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 632.0
+offset_top = 630.0
 offset_right = 1326.0
-offset_bottom = 658.0
+offset_bottom = 656.0
 text = "Current time: %02d:%02d:%02d.%03d"
 
 [node name="StartButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 662.0
+offset_top = 661.0
 offset_right = 1326.0
-offset_bottom = 693.0
+offset_bottom = 692.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"

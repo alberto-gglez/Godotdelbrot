@@ -1,5 +1,6 @@
 #
 # ToDo:
+# - Reimplement thread signals
 # - Disable UI on start
 # - Implement state machine for DrawState
 # - Generate color gradient and let the user select the number of iterations
@@ -37,7 +38,6 @@ signal image_side_changed(imageSide: int)
 func _ready() -> void:
 	image_side = texture_panel.size[texture_panel.size.min_axis_index()] - IMAGE_MARGIN
 	image = Image.create(image_side, image_side, false, Image.FORMAT_RGBA8)
-	color_list.push_back("#000000")
 	
 	ui_controls.start_pressed.connect(set_state)
 	ui_controls.refresh_changed.connect(
@@ -57,7 +57,6 @@ func _ready() -> void:
 
 func update_ui_size() -> void:
 	main_ui_control.set_size(get_viewport_rect().size)
-#	await main_ui_control.resized
 	if ui_controls.get_current_state() == UIControls.DrawState.CLEARED:
 		resize_image(false, true)
 
@@ -123,7 +122,6 @@ func threads_finished() -> void:
 		finished.emit()
 
 func clear_state() -> void:
-	worker_launcher.work_added.emit()
 	worker_launcher_thread.wait_to_finish()
 	stop_flag = false
 	paint_timer.stop()
