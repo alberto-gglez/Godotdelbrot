@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/UIControls.gd" id="1_ed81p"]
 
 [node name="UIControls" type="VBoxContainer"]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
@@ -18,22 +18,14 @@ script = ExtResource("1_ed81p")
 
 [node name="RenderModeHBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_right = 1326.0
-offset_bottom = 31.0
 
 [node name="RenderModeLabel" type="Label" parent="RenderModeHBoxContainer"]
 layout_mode = 2
-offset_top = 2.0
-offset_right = 105.0
-offset_bottom = 28.0
 text = "Render mode"
 
 [node name="RenderModeOptionButton" type="OptionButton" parent="RenderModeHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 109.0
-offset_right = 184.0
-offset_bottom = 31.0
 item_count = 1
 selected = 0
 popup/item_0/text = "CPU"
@@ -43,9 +35,6 @@ popup/item_0/id = 0
 self_modulate = Color(1, 1, 1, 0.666667)
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-offset_top = 36.0
-offset_right = 1326.0
-offset_bottom = 156.0
 
 [node name="CPURenderHBoxContainer" type="VBoxContainer" parent="RenderModePanel"]
 layout_mode = 1
@@ -62,32 +51,20 @@ theme_override_constants/separation = 5
 
 [node name="ThreadsHBoxContainer" type="HBoxContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
 layout_mode = 2
-offset_right = 1306.0
-offset_bottom = 26.0
 
 [node name="ThreadsLabel" type="Label" parent="RenderModePanel/CPURenderHBoxContainer/ThreadsHBoxContainer"]
 layout_mode = 2
-offset_right = 121.0
-offset_bottom = 26.0
 text = "Thread number"
 
 [node name="ThreadNumberOptionButton" type="OptionButton" parent="RenderModePanel/CPURenderHBoxContainer/ThreadsHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 125.0
-offset_right = 139.0
-offset_bottom = 26.0
 
 [node name="ThreadsPriorityHBoxContainer" type="HBoxContainer" parent="RenderModePanel/CPURenderHBoxContainer"]
 layout_mode = 2
-offset_top = 31.0
-offset_right = 1306.0
-offset_bottom = 57.0
 
 [node name="PriorityLabel" type="Label" parent="RenderModePanel/CPURenderHBoxContainer/ThreadsPriorityHBoxContainer" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
-offset_right = 117.0
-offset_bottom = 26.0
 mouse_force_pass_scroll_events = false
 shortcut_context = NodePath("")
 text = "Thread priority"
@@ -95,42 +72,27 @@ text = "Thread priority"
 [node name="PriorityOptionButton" type="OptionButton" parent="RenderModePanel/CPURenderHBoxContainer/ThreadsPriorityHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 121.0
-offset_right = 135.0
-offset_bottom = 26.0
 
 [node name="WorkSubdivisionCheckBox" type="CheckBox" parent="RenderModePanel/CPURenderHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 62.0
-offset_right = 1306.0
-offset_bottom = 93.0
 button_pressed = true
 text = "Put finished threads to work"
 
 [node name="IterationsHSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
-offset_top = 161.0
-offset_right = 1326.0
-offset_bottom = 187.0
 split_offset = 130
 dragger_visibility = 2
 
 [node name="IterationsLabel" type="Label" parent="IterationsHSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 130.0
-offset_bottom = 26.0
 size_flags_vertical = 8
 text = "Iterations: %d"
 
 [node name="IterationsHSlider" type="HSlider" parent="IterationsHSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 130.0
-offset_top = 5.0
-offset_right = 1326.0
-offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = 200.0
@@ -140,28 +102,17 @@ editable = false
 
 [node name="ColorVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_top = 192.0
-offset_right = 1326.0
-offset_bottom = 307.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorVBoxContainer"]
 layout_mode = 2
-offset_right = 1326.0
-offset_bottom = 31.0
 
 [node name="ColorLabel" type="Label" parent="ColorVBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_top = 2.0
-offset_right = 42.0
-offset_bottom = 28.0
 text = "Color"
 
 [node name="ColorOptionButton" type="OptionButton" parent="ColorVBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 46.0
-offset_right = 188.0
-offset_bottom = 31.0
 item_count = 2
 selected = 0
 popup/item_0/text = "Red gradient"
@@ -172,9 +123,6 @@ popup/item_1/id = 1
 [node name="Panel" type="Panel" parent="ColorVBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-offset_top = 35.0
-offset_right = 1326.0
-offset_bottom = 115.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorVBoxContainer/Panel"]
 layout_mode = 1
@@ -191,129 +139,80 @@ theme_override_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorVBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
-offset_right = 1306.0
-offset_bottom = 27.0
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_right = 77.0
-offset_bottom = 26.0
 text = "First color"
 
 [node name="FirstColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-offset_left = 82.0
-offset_right = 122.0
-offset_bottom = 27.0
 color = Color(1, 1, 1, 1)
 
 [node name="Label2" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_left = 127.0
-offset_right = 236.0
-offset_bottom = 26.0
 text = "Gradient start"
 
 [node name="GradientStartColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-offset_left = 241.0
-offset_right = 281.0
-offset_bottom = 27.0
 color = Color(1, 0.996078, 0.996078, 1)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ColorVBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
-offset_top = 32.0
-offset_right = 1306.0
-offset_bottom = 60.0
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
 [node name="Label2" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-offset_top = 1.0
-offset_right = 76.0
-offset_bottom = 27.0
 text = "Last color"
 
 [node name="LastColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-offset_left = 81.0
-offset_right = 121.0
-offset_bottom = 28.0
 
 [node name="Label" type="Label" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-offset_left = 126.0
-offset_top = 1.0
-offset_right = 228.0
-offset_bottom = 27.0
 text = "Gradient end"
 
 [node name="GradientEndColor" type="ColorPickerButton" parent="ColorVBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-offset_left = 233.0
-offset_right = 273.0
-offset_bottom = 28.0
 color = Color(1, 0, 0, 1)
 
 [node name="OrientationHBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_top = 312.0
-offset_right = 1326.0
-offset_bottom = 338.0
 
 [node name="OrientationLabel" type="Label" parent="OrientationHBoxContainer"]
 layout_mode = 2
-offset_right = 90.0
-offset_bottom = 26.0
 text = "Orientation"
 
 [node name="OrientationOptionButton" type="OptionButton" parent="OrientationHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 94.0
-offset_right = 108.0
-offset_bottom = 26.0
 
 [node name="EnableRefreshCheckBox" type="CheckBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 343.0
-offset_right = 1326.0
-offset_bottom = 374.0
 button_pressed = true
 text = "Refresh image while working"
 
 [node name="RefreshHSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
-offset_top = 379.0
-offset_right = 1326.0
-offset_bottom = 405.0
 split_offset = 100
 dragger_visibility = 2
 
 [node name="RefreshLabel" type="Label" parent="RefreshHSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 102.0
-offset_bottom = 26.0
 size_flags_vertical = 8
 text = "Delay: %3.2fs"
 
 [node name="RefreshHSlider" type="HSlider" parent="RefreshHSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 102.0
-offset_top = 5.0
-offset_right = 1326.0
-offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = 0.01
@@ -323,57 +222,34 @@ value = 0.01
 
 [node name="ImageSideHBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_top = 410.0
-offset_right = 1326.0
-offset_bottom = 441.0
 
 [node name="ImageSideLabel" type="Label" parent="ImageSideHBoxContainer"]
 layout_mode = 2
-offset_top = 2.0
-offset_right = 84.0
-offset_bottom = 28.0
 text = "Image side"
 
 [node name="ImageSideOptionButton" type="OptionButton" parent="ImageSideHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 88.0
-offset_right = 254.0
-offset_bottom = 31.0
 item_count = 1
 popup/item_0/text = "Dynamic: %d px"
 popup/item_0/id = 0
 
 [node name="----- MarginContainer99" type="MarginContainer" parent="."]
 layout_mode = 2
-offset_top = 446.0
-offset_right = 1326.0
-offset_bottom = 625.0
 size_flags_vertical = 3
 
 [node name="TimeLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 630.0
-offset_right = 1326.0
-offset_bottom = 656.0
 text = "Current time: %02d:%02d:%02d.%03d"
 
 [node name="StartButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 661.0
-offset_right = 1326.0
-offset_bottom = 692.0
-grow_horizontal = 2
-grow_vertical = 2
 text = "Start"
 
 [node name="ToggleFullscreenButton" type="Button" parent="."]
 layout_mode = 2
-offset_top = 697.0
-offset_right = 1326.0
-offset_bottom = 728.0
 text = "Toggle fullscreen"
 
 [node name="TimeTimer" type="Timer" parent="."]

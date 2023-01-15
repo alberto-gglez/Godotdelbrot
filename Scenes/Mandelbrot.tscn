@@ -18,7 +18,7 @@ offset_bottom = 768.0
 metadata/_edit_use_anchors_ = true
 
 [node name="MainHBoxContainer" type="HBoxContainer" parent="MainUIControl"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -28,14 +28,13 @@ alignment = 1
 [node name="TexturePanel" type="Panel" parent="MainUIControl/MainHBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(660, 660)
-offset_right = 908.0
-offset_bottom = 768.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
 [node name="TextureRect" type="TextureRect" parent="MainUIControl/MainHBoxContainer/TexturePanel"]
 unique_name_in_owner = true
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -48,13 +47,17 @@ texture = SubResource("ImageTexture_mxjhn")
 
 [node name="UIPanel" type="Panel" parent="MainUIControl/MainHBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 912.0
-offset_right = 1366.0
-offset_bottom = 768.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="UIControls" parent="MainUIControl/MainHBoxContainer/UIPanel" instance=ExtResource("2_16yy2")]
 unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

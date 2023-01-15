@@ -7,6 +7,7 @@ enum Orientation { DRAW_HORIZONTAL, DRAW_VERTICAL }
 var processor_count := OS.get_processor_count()
 var start_time : int
 var current_state := DrawState.CLEARED
+var ui_enabled := true
 
 @onready var color_list := preload("res://Scripts/Palettes.gd").new().palettes
 
@@ -89,9 +90,11 @@ func _ready() -> void:
 func next_state() -> void:
 	match current_state:
 		DrawState.CLEARED:
+			disable()
 			start()
 			current_state = DrawState.STARTED
 		DrawState.STARTED:
+			enable()
 			stop()
 			current_state = DrawState.STOPPED
 		DrawState.STOPPED:
@@ -122,6 +125,18 @@ func image_side_changed(imageSide: int) -> void:
 
 func get_current_state() -> int:
 	return current_state
+
+func enable() -> void:
+	for node in find_children("*", "BaseButton"):
+		if node != start_button:
+			(node as BaseButton).disabled = false
+	ui_enabled = true
+
+func disable() -> void:
+	for node in find_children("*", "BaseButton"):
+		if node != start_button:
+			(node as BaseButton).disabled = true
+	ui_enabled = false
 
 static func get_time_parts(duration: int) -> Array[int]:
 	var milis := duration % 1000

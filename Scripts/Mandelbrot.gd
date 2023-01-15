@@ -1,16 +1,16 @@
 #
 # ToDo:
-# - Reimplement thread signals
-# - Disable UI on start
-# - Implement state machine for DrawState
 # - Generate color gradient and let the user select the number of iterations
 # - Implement optimized complex number calculations (don't use the class; merge the operations) + UI
-# - Replace timers with a thread (see the warning icon in the timer) ?
 # - Zoom level
 # - Keep top times
 # - Refactor into some scenes (3/n)
+# - GPU rendering
 #
-# - Implement GPU rendering
+# Maybe:
+# - Reimplement thread signals
+# - Implement state machine for DrawState
+# - Replace timers with a thread (see the warning icon in the timer) ?
 #
 
 extends Node2D
